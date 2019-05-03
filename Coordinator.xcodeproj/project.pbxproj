@@ -10,6 +10,11 @@
 		CDA72104227B457D00F237B6 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA720FA227B457D00F237B6 /* Coordinator.framework */; };
 		CDA72109227B457D00F237B6 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA72108227B457D00F237B6 /* CoordinatorTests.swift */; };
 		CDA7210B227B457D00F237B6 /* Coordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = CDA720FD227B457D00F237B6 /* Coordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDA7211B227B462700F237B6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA72115227B462700F237B6 /* Coordinator.swift */; };
+		CDA7211C227B462700F237B6 /* UINavigationControllerDelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA72116227B462700F237B6 /* UINavigationControllerDelegate+Extension.swift */; };
+		CDA7211D227B462700F237B6 /* CoordinatorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA72117227B462700F237B6 /* CoordinatorStack.swift */; };
+		CDA7211E227B462700F237B6 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA72118227B462700F237B6 /* NavigationCoordinator.swift */; };
+		CDA7211F227B462700F237B6 /* AppCoordinatorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA72119227B462700F237B6 /* AppCoordinatorStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		CDA72103227B457D00F237B6 /* CoordinatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA72108227B457D00F237B6 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		CDA7210A227B457D00F237B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDA72115227B462700F237B6 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CDA72116227B462700F237B6 /* UINavigationControllerDelegate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationControllerDelegate+Extension.swift"; sourceTree = "<group>"; };
+		CDA72117227B462700F237B6 /* CoordinatorStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorStack.swift; sourceTree = "<group>"; };
+		CDA72118227B462700F237B6 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		CDA72119227B462700F237B6 /* AppCoordinatorStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,11 @@
 		CDA720FC227B457D00F237B6 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				CDA72119227B462700F237B6 /* AppCoordinatorStack.swift */,
+				CDA72115227B462700F237B6 /* Coordinator.swift */,
+				CDA72117227B462700F237B6 /* CoordinatorStack.swift */,
+				CDA72118227B462700F237B6 /* NavigationCoordinator.swift */,
+				CDA72116227B462700F237B6 /* UINavigationControllerDelegate+Extension.swift */,
 				CDA720FD227B457D00F237B6 /* Coordinator.h */,
 				CDA720FE227B457D00F237B6 /* Info.plist */,
 			);
@@ -148,6 +163,7 @@
 				TargetAttributes = {
 					CDA720F9227B457D00F237B6 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					CDA72102227B457D00F237B6 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -194,6 +210,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA7211C227B462700F237B6 /* UINavigationControllerDelegate+Extension.swift in Sources */,
+				CDA7211F227B462700F237B6 /* AppCoordinatorStack.swift in Sources */,
+				CDA7211B227B462700F237B6 /* Coordinator.swift in Sources */,
+				CDA7211E227B462700F237B6 /* NavigationCoordinator.swift in Sources */,
+				CDA7211D227B462700F237B6 /* CoordinatorStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +362,7 @@
 		CDA7210F227B457D00F237B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Patrick.Fischer.Coordinator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +389,7 @@
 		CDA72110227B457D00F237B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +415,7 @@
 		CDA72112227B457D00F237B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9D9FQMNFD;
 				INFOPLIST_FILE = CoordinatorTests/Info.plist;
@@ -409,6 +434,7 @@
 		CDA72113227B457D00F237B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9D9FQMNFD;
 				INFOPLIST_FILE = CoordinatorTests/Info.plist;
