@@ -13,7 +13,7 @@ import UIKit
 extension UINavigationControllerDelegate where Self: NavigationCoordinator {
     
     ///Removes Coordinator from childCoordinators if ViewController is popping from UINavigationController
-    func removeCoordinator<T:UIViewController>(register: String, viewController: T.Type) {
+    public func removeCoordinator<T:UIViewController>(register: String, viewController: T.Type) {
         var registerToDelete: String?
         
         // checks if Viewcontroller is popping

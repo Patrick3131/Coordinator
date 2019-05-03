@@ -19,7 +19,7 @@ public protocol NavigationCoordinator: class, Coordinator, UINavigationControlle
 }
 
 extension NavigationCoordinator {
-    func removeChild(child: String?) {
+    public func removeChild(child: String?) {
         
         if child != nil {
             if childCoordinators[child!] != nil {
@@ -32,7 +32,7 @@ extension NavigationCoordinator {
         }
     }
     
-    func addChild(coordinator: Coordinator, key: String) {
+    public func addChild(coordinator: Coordinator, key: String) {
         childCoordinators[key] = coordinator
         appCoordinatorStack.addCoordinator(coordinator: coordinator)
     }
