@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-
+/**
+ NavigationController holds several Coordinators, has standard implementation of addChild and removeChild
+ */
 public protocol NavigationCoordinator: class, Coordinator, UINavigationControllerDelegate {
-    var navigationController: UINavigationController { get }
     var childCoordinators: [String: Coordinator] { get set}
     var appCoordinatorStack: CoordinatorStack { get }
     func addChild(coordinator: Coordinator, key: String)

@@ -14,7 +14,6 @@ import UIKit.UINavigationController
 open class AppCoordinatorStack: CoordinatorStack {
     public var coodinators = [NavigationCoordinator]()
     public var navigationController: UINavigationController
-    
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }

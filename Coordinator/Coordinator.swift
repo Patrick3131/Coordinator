@@ -9,7 +9,9 @@
 import Foundation
 import UIKit.UINavigationController
 
-
+/**
+Coordinator manages a UINavigationController, with start the start UIViewController gets loaded
+ */
 public protocol Coordinator {
     var navigationController: UINavigationController { get }
     func start()
