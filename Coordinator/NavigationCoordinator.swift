@@ -11,7 +11,8 @@ import UIKit
 
 
 
-open class NavigationCoordinator: NSObject, UINavigationControllerDelegate {
+open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navigation {
+    
     public var navigationController: UINavigationController
     var childCoordinators = [CoordinatorStorage]()
     public var appCoordinatorStack: CoordinatorStack

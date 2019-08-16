@@ -12,7 +12,7 @@ import UIKit.UINavigationController
  Problem: Delegate des UINavigationController muss immer dem korrekten NavigationCoordinator zugewiesen werden, ansonsten werden die Coordinatoren nicht korrekt entfernt sobald der entsprechende ViewController vom NavigationStack des UINavigationController popped. Daher AppCoordinatorStack.
  */
 open class AppCoordinatorStack: CoordinatorStack {
-    public var coordinators = [Navigation]()
+    public var coordinators = [NavigationCoordinator]()
     public var navigationController: UINavigationController
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -36,7 +36,7 @@ open class AppCoordinatorStack: CoordinatorStack {
     }
     
     public func addCoordinator(coordinator: Coordinator) {
-        if let navigationCoordinator = coordinator as? Navigation {
+        if let navigationCoordinator = coordinator as? NavigationCoordinator {
             coordinators.append(navigationCoordinator)
         }
         updateNavigationDelegate()
