@@ -12,32 +12,32 @@ import UIKit.UINavigationController
  Problem: Delegate des UINavigationController muss immer dem korrekten NavigationCoordinator zugewiesen werden, ansonsten werden die Coordinatoren nicht korrekt entfernt sobald der entsprechende ViewController vom NavigationStack des UINavigationController popped. Daher AppCoordinatorStack.
  */
 open class AppCoordinatorStack: CoordinatorStack {
-    public var coodinators = [Navigation]()
+    public var coordinators = [Navigation]()
     public var navigationController: UINavigationController
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     public func updateNavigationDelegate() {
-        let howManyCoordinators = coodinators.count
+        let howManyCoordinators = coordinators.count
         if howManyCoordinators > 1 {
-            if let lastCoordinator = coodinators.last {
+            if let lastCoordinator = coordinators.last {
                 if lastCoordinator.childCoordinators.count == 0 {
-                    let secondLastCoordinator = coodinators[howManyCoordinators - 2]
+                    let secondLastCoordinator = coordinators[howManyCoordinators - 2]
                     navigationController.delegate = secondLastCoordinator
                 } else {
                     navigationController.delegate = lastCoordinator
                 }
             }
         } else if howManyCoordinators == 1 {
-            let coordinator = coodinators[0]
+            let coordinator = coordinators[0]
             navigationController.delegate = coordinator
         }
     }
     
     public func addCoordinator(coordinator: Coordinator) {
         if let navigationCoordinator = coordinator as? Navigation {
-            coodinators.append(navigationCoordinator)
+            coordinators.append(navigationCoordinator)
         }
         updateNavigationDelegate()
     }
@@ -45,9 +45,9 @@ open class AppCoordinatorStack: CoordinatorStack {
     public func removeCoordinator(coordinator: Coordinator) {
         if let navigationCoordinator = coordinator as? Navigation {
             var index = 0
-            for y in coodinators {
+            for y in coordinators {
                 if y === navigationCoordinator {
-                    coodinators.remove(at: index)
+                    coordinators.remove(at: index)
                 }
                 index = index + 1
             }

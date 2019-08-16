@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD5063E52306EA3B00596356 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5063E42306EA3B00596356 /* NavigationCoordinator.swift */; };
 		CDA72104227B457D00F237B6 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA720FA227B457D00F237B6 /* Coordinator.framework */; };
 		CDA72109227B457D00F237B6 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA72108227B457D00F237B6 /* CoordinatorTests.swift */; };
 		CDA7210B227B457D00F237B6 /* Coordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = CDA720FD227B457D00F237B6 /* Coordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD5063E42306EA3B00596356 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		CDA720FA227B457D00F237B6 /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA720FD227B457D00F237B6 /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 		CDA720FE227B457D00F237B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				CDA72116227B462700F237B6 /* UINavigationControllerDelegate+Extension.swift */,
 				CDA720FD227B457D00F237B6 /* Coordinator.h */,
 				CDA720FE227B457D00F237B6 /* Info.plist */,
+				CD5063E42306EA3B00596356 /* NavigationCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				CDA7211F227B462700F237B6 /* AppCoordinatorStack.swift in Sources */,
 				CDA7211B227B462700F237B6 /* Coordinator.swift in Sources */,
 				CDA7211E227B462700F237B6 /* Navigation.swift in Sources */,
+				CD5063E52306EA3B00596356 /* NavigationCoordinator.swift in Sources */,
 				CDA7211D227B462700F237B6 /* CoordinatorStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
