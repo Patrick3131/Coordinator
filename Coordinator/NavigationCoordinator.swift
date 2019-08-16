@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class NavigationCoordinator: NSObject, Navigation {
+
+
+public class NavigationCoordinator: NSObject {
     var navigationController: UINavigationController
-    var childCoordinators = [String : Coordinator]()
+    private var childCoordinators = [CoordinatorStorage]()
     var appCoordinatorStack: CoordinatorStack
-    
-     
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,7 +25,35 @@ class NavigationCoordinator: NSObject, Navigation {
         
     }
     
-   
+    func addChild(coordinator: Coordinator, vcThatPops: UIViewController? = nil) {
+        childCoordinators.append(CoordinatorStorage(coordinator: coordinator, identifier: coordinator.identifier(), vc: vcThatPops))
+        appCoordinatorStack.addCoordinator(coordinator: coordinator)
+    }
     
+    func removeChild(child: String?) {
+        if child != nil {
+            if let coordinator = childCoordinators.first(where: { $0.identifier == child!})  {
+                appCoordinatorStack.removeCoordinator(coordinator: coordinator.coordinator)
+                let index = childCoordinators.firstIndex(where: { $0.identifier == child})
+                childCoordinators.remove(at: index!)
+                appCoordinatorStack.updateNavigationDelegate()
+            }
+        }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        removeCoordinator()
+    }
+    
+    func removeCoordinator() {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(fromViewController) else { return }
+        
+        let element = childCoordinators.first(where: { $0.vc === fromViewController})
+        removeChild(child: element?.identifier)
+        
+    }
+}
+
+extension NavigationCoordinator: UINavigationControllerDelegate {
     
 }

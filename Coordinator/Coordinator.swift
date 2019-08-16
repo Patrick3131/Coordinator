@@ -14,7 +14,14 @@ Coordinator manages a UINavigationController, with start the start UIViewControl
  */
 public protocol Coordinator {
     var navigationController: UINavigationController { get }
+    func identifier() -> String
     func start()
+}
+
+public extension Coordinator {
+    func identifier() -> String {
+        return String(describing: self)
+    }
 }
 
 
