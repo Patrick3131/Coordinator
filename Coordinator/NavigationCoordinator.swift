@@ -14,9 +14,14 @@ import UIKit
 open class NavigationCoordinator: NSObject, UINavigationControllerDelegate {
     public var navigationController: UINavigationController
     var childCoordinators = [CoordinatorStorage]()
-    var appCoordinatorStack: CoordinatorStack
+    public var appCoordinatorStack: CoordinatorStack
     
-    init(navigationController: UINavigationController) {
+    public init(navigationController: UINavigationController, appCoordinatorStack: CoordinatorStack) {
+        self.navigationController = navigationController
+        self.appCoordinatorStack = appCoordinatorStack
+    }
+    
+    public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.appCoordinatorStack = AppCoordinatorStack(navigationController: navigationController)
     }
@@ -25,12 +30,16 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate {
         
     }
     
-    func addChild(coordinator: Coordinator, vcThatPops: UIViewController? = nil) {
+    deinit {
+        print(self.description, "deallocated")
+    }
+    
+    public func addChild(coordinator: Coordinator, vcThatPops: UIViewController? = nil) {
         childCoordinators.append(CoordinatorStorage(coordinator: coordinator, identifier: coordinator.identifier(), vc: vcThatPops))
         appCoordinatorStack.addCoordinator(coordinator: coordinator)
     }
     
-    func removeChild(child: String?) {
+    public func removeChild(child: String?) {
         if child != nil {
             if let coordinator = childCoordinators.first(where: { $0.identifier == child!})  {
                 appCoordinatorStack.removeCoordinator(coordinator: coordinator.coordinator)
