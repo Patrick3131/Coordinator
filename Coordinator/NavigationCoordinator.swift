@@ -11,9 +11,9 @@ import UIKit
 
 
 
-public class NavigationCoordinator: NSObject {
-    var navigationController: UINavigationController
-    private var childCoordinators = [CoordinatorStorage]()
+open class NavigationCoordinator: NSObject, UINavigationControllerDelegate {
+    public var navigationController: UINavigationController
+    var childCoordinators = [CoordinatorStorage]()
     var appCoordinatorStack: CoordinatorStack
     
     init(navigationController: UINavigationController) {
@@ -21,7 +21,7 @@ public class NavigationCoordinator: NSObject {
         self.appCoordinatorStack = AppCoordinatorStack(navigationController: navigationController)
     }
     
-    func start() {
+    open func start() {
         
     }
     
@@ -41,7 +41,7 @@ public class NavigationCoordinator: NSObject {
         }
     }
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         removeCoordinator()
     }
     
@@ -54,6 +54,4 @@ public class NavigationCoordinator: NSObject {
     }
 }
 
-extension NavigationCoordinator: UINavigationControllerDelegate {
-    
-}
+
