@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-extension UINavigationControllerDelegate where Self: NavigationCoordinator {
+extension UINavigationControllerDelegate where Self: Navigation {
     
     ///Removes Coordinator from childCoordinators if ViewController is popping from UINavigationController
     public func removeCoordinator<T:UIViewController>(register: String, viewController: T.Type) {

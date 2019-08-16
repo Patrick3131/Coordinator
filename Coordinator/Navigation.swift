@@ -12,14 +12,14 @@ import UIKit
 /**
  NavigationController holds several Coordinators, has standard implementation of addChild and removeChild
  */
-public protocol NavigationCoordinator: class, Coordinator, UINavigationControllerDelegate {
+public protocol Navigation: class, Coordinator, UINavigationControllerDelegate {
     var childCoordinators: [String: Coordinator] { get set}
     var appCoordinatorStack: CoordinatorStack { get }
     func addChild(coordinator: Coordinator, key: String)
     func removeChild(child: String?)
 }
 
-extension NavigationCoordinator {
+extension Navigation {
     public func removeChild(child: String?) {
         
         if child != nil {
