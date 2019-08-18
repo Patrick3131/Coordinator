@@ -86,13 +86,13 @@
 			isa = PBXGroup;
 			children = (
 				CDA72119227B462700F237B6 /* AppCoordinatorStack.swift */,
+				CD5063E42306EA3B00596356 /* NavigationCoordinator.swift */,
 				CDA72115227B462700F237B6 /* Coordinator.swift */,
 				CDA72117227B462700F237B6 /* CoordinatorStack.swift */,
 				CDA72118227B462700F237B6 /* Navigation.swift */,
 				CDA72116227B462700F237B6 /* UINavigationControllerDelegate+Extension.swift */,
 				CDA720FD227B457D00F237B6 /* Coordinator.h */,
 				CDA720FE227B457D00F237B6 /* Info.plist */,
-				CD5063E42306EA3B00596356 /* NavigationCoordinator.swift */,
 				CD5063E62307024200596356 /* CoordinatorStorage.swift */,
 			);
 			path = Coordinator;

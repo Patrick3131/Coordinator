@@ -55,7 +55,8 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
                     appCoordinatorStack.removeCoordinator(coordinator: coordinator.coordinator)
                     let index = childCoordinators.firstIndex(where: { $0.identifier == child})
                     childCoordinators.remove(at: index!)
-                    appCoordinatorStack.updateNavigationDelegate()                } else {
+                    appCoordinatorStack.updateNavigationDelegate()
+                } else {
                     fatalError("appCoordinatorStack is not initialised, please make sure your first NavigationController is initialised with a CoordinatorStack")
                 }
             }
@@ -63,12 +64,15 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
     }
     
     open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        
         removeCoordinator()
     }
     
     func removeCoordinator() {
+        
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(fromViewController) else { return }
         let element = childCoordinators.first(where: { $0.vc === fromViewController})
+        
         removeChild(child: element?.identifier)
         
     }
