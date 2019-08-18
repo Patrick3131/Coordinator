@@ -37,7 +37,6 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
     }
     
     public func addChild(coordinator: Coordinator, vcThatPops: UIViewController? = nil) {
-        
         childCoordinators.append(CoordinatorStorage(coordinator: coordinator, identifier: coordinator.identifier(), vc: vcThatPops))
         if let appCoordinatorStack = appCoordinatorStack {
             appCoordinatorStack.addCoordinator(coordinator: coordinator)
@@ -63,13 +62,12 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
         }
     }
     
-    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         removeCoordinator()
     }
     
     func removeCoordinator() {
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(fromViewController) else { return }
-        
         let element = childCoordinators.first(where: { $0.vc === fromViewController})
         removeChild(child: element?.identifier)
         
