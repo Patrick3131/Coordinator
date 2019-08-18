@@ -14,7 +14,7 @@ import UIKit
  */
 public protocol Navigation: class, Coordinator, UINavigationControllerDelegate {
 //    var childCoordinators: [String: Coordinator] { get set}
-    var appCoordinatorStack: CoordinatorStack { get }
+    var appCoordinatorStack: CoordinatorStack? { get }
     func addChild(coordinator: Coordinator, key: String)
     func removeChild(child: String?)
 }
