@@ -19,22 +19,4 @@ public protocol Navigation: class, Coordinator, UINavigationControllerDelegate {
     func removeChild(child: String?)
 }
 
-extension Navigation {
-    public func removeChild(child: String?) {
-        
-//        if child != nil {
-//            if childCoordinators[child!] != nil {
-//                //removes Coordinator from AppCoordinatorStack
-//                appCoordinatorStack.removeCoordinator(coordinator: childCoordinators[child!]!)
-//                //removes Coordinator from ChildCoordinator
-//                childCoordinators.removeValue(forKey: child!)
-//                appCoordinatorStack.updateNavigationDelegate()
-//            }
-//        }
-    }
-    
-    public func addChild(coordinator: Coordinator, key: String) {
-//        childCoordinators[key] = coordinator
-//        appCoordinatorStack.addCoordinator(coordinator: coordinator)
-    }
-}
+

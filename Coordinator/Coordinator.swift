@@ -14,6 +14,7 @@ Coordinator manages a UINavigationController, with start the start UIViewControl
  */
 public protocol Coordinator {
     var navigationController: UINavigationController { get }
+    /// if you use more than one of the same Coordinators in one NavigationController than implement identifier in your Coordinator class
     func identifier() -> String
     func start()
 }
