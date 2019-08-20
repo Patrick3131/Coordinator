@@ -84,11 +84,11 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
     
     public func removeAllChilds() {
         childCoordinators.removeAll()
+        appCoordinatorStack?.popToRootStack()
         print(self.description)
         print(childCoordinators)
         print(appCoordinatorStack?.coordinators.count)
         print(navigationController.viewControllers.count)
-        appCoordinatorStack?.popToRootStack()
     }
     
     public func setThisCoordinatorAsRoot(_ navigationCoordinator: Navigation? = nil) {
