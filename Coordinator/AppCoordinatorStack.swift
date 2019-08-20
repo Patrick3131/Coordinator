@@ -56,10 +56,10 @@ open class AppCoordinatorStack: CoordinatorStack {
     }
     
     public func popToRootStack() {
-        let root = coordinators.remove(at: 0)
-        root.childCoordinators.removeAll()
+//        let root = coordinators.remove(at: 0)
+//        root.childCoordinators.removeAll()
         coordinators.removeAll()
-        coordinators.append(root)
+//        coordinators.append(root)
     }
     
 }

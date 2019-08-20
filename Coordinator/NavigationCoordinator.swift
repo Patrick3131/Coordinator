@@ -91,6 +91,14 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
         appCoordinatorStack?.popToRootStack()
     }
     
+    public func setThisCoordinatorAsRoot(_ navigationCoordinator: Navigation? = nil) {
+        if navigationCoordinator != nil {
+            self.parentCoordinator = navigationCoordinator
+        } else {
+            self.parentCoordinator = self
+        }
+    }
+    
 }
 
 
