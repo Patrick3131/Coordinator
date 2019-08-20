@@ -17,6 +17,7 @@ public protocol Navigation: class, Coordinator, UINavigationControllerDelegate {
     var appCoordinatorStack: CoordinatorStack? { get }
     func addChild(coordinator: Coordinator, vcThatPops: UIViewController?)
     func removeChild(child: String?)
+    func removeAllChilds()
 }
 
 

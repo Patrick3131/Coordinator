@@ -18,4 +18,5 @@ public protocol CoordinatorStack {
     func updateNavigationDelegate()
     func addCoordinator(coordinator: Coordinator)
     func removeCoordinator(coordinator: Coordinator)
+    func popToRootStack()
 }

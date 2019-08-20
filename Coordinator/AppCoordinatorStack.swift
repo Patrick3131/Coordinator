@@ -55,6 +55,12 @@ open class AppCoordinatorStack: CoordinatorStack {
         updateNavigationDelegate()
     }
     
+    public func popToRootStack() {
+        let root = coordinators.remove(at: 0)
+        root.childCoordinators.removeAll()
+        coordinators.removeAll()
+        coordinators.append(root)
+    }
     
 }
 

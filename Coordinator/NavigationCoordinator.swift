@@ -12,7 +12,7 @@ import UIKit
 
 
 open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navigation {
-    
+    weak public var parentCoordinator: Navigation?
     public var navigationController: UINavigationController
     var childCoordinators = [CoordinatorStorage]()
     public var appCoordinatorStack: CoordinatorStack?
@@ -37,6 +37,11 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
     }
     
     public func addChild(coordinator: Coordinator, vcThatPops: UIViewController? = nil) {
+        if parentCoordinator != nil {
+            coordinator.parentCoordinator = parentCoordinator
+        } else {
+            coordinator.parentCoordinator = self
+        }
         childCoordinators.append(CoordinatorStorage(coordinator: coordinator, identifier: coordinator.identifier(), vc: vcThatPops))
         if let appCoordinatorStack = appCoordinatorStack {
             appCoordinatorStack.addCoordinator(coordinator: coordinator)
@@ -76,6 +81,16 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
         removeChild(child: element?.identifier)
         
     }
+    
+    public func removeAllChilds() {
+        childCoordinators.removeAll()
+        print(self.description)
+        print(childCoordinators)
+        print(appCoordinatorStack?.coordinators.count)
+        print(navigationController.viewControllers.count)
+        appCoordinatorStack?.popToRootStack()
+    }
+    
 }
 
 
