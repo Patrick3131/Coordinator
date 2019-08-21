@@ -12,11 +12,12 @@ import UIKit.UINavigationController
 /** handles delegatezuweisung für navigationController
  Problem: Delegate des UINavigationController muss immer dem korrekten NavigationCoordinator zugewiesen werden, ansonsten werden die Coordinatoren nicht korrekt entfernt sobald der entsprechende ViewController vom NavigationStack des UINavigationController popped. Daher oordinatorStack.
  */
-public protocol CoordinatorStack {
-    var coordinators: [NavigationCoordinator] {get set}
+public protocol CoordinatorStack: class {
+    var coordinators: [Navigation] {get set}
     var navigationController: UINavigationController { get }
     func updateNavigationDelegate()
     func addCoordinator(coordinator: Coordinator)
     func removeCoordinator(coordinator: Coordinator)
-    func popToRootStack()
+    func popToRootStack(rootCoordinator: Navigation)
+    func popToStack(coordinator: Navigation)
 }

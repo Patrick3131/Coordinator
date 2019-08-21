@@ -14,7 +14,7 @@ import UIKit
 open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navigation {
     weak public var parentCoordinator: Navigation?
     public var navigationController: UINavigationController
-    var childCoordinators = [CoordinatorStorage]()
+    public var childCoordinators = [CoordinatorStorage]()
     public var appCoordinatorStack: CoordinatorStack?
     
     /// used to initialise very first NavigationCoordinator, then coordinatorstack gets passed around in addChild funtion
@@ -82,19 +82,41 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
         
     }
     
-    public func removeAllChilds() {
+    public func removeAllChildsBut(coordinator: Coordinator?) {
+        let storageUnit = childCoordinators.first {$0.identifier == coordinator?.identifier() }
         childCoordinators.removeAll()
-        appCoordinatorStack?.popToRootStack()
-        print(self.description)
-        print(childCoordinators)
-        print(appCoordinatorStack?.coordinators.count)
-        print(navigationController.viewControllers.count)
+        
+        
+        if let storageUnit = storageUnit {
+            childCoordinators.append(storageUnit)
+            if let navigation = storageUnit.coordinator as? Navigation {
+                navigation.childCoordinators.removeAll()
+                appCoordinatorStack?.popToStack(coordinator: navigation)
+            } else {
+                appCoordinatorStack?.coordinators.removeAll()
+            }
+        }
+
+    }
+    
+    
+
+    
+    public func removeAllChilds() {
+//        childCoordinators.removeAll()
+//        appCoordinatorStack?.coordinators.removeAll()
+////        appCoordinatorStack?.popToRootStack(rootCoordinator: self)
+//        print(self.description)
+//        print(childCoordinators)
+//        print(appCoordinatorStack?.coordinators.count)
+//        print(navigationController.viewControllers.count)
     }
     
     public func setThisCoordinatorAsRoot(_ navigationCoordinator: Navigation? = nil) {
         if navigationCoordinator != nil {
             self.parentCoordinator = navigationCoordinator
         } else {
+            
             self.parentCoordinator = self
         }
     }

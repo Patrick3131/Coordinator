@@ -15,10 +15,12 @@ import UIKit
 public protocol Navigation: class, Coordinator, UINavigationControllerDelegate {
 //    var childCoordinators: [String: Coordinator] { get set}
     var appCoordinatorStack: CoordinatorStack? { get }
+    var childCoordinators: [CoordinatorStorage] { get set }
     func addChild(coordinator: Coordinator, vcThatPops: UIViewController?)
     func removeChild(child: String?)
     func removeAllChilds()
     func setThisCoordinatorAsRoot(_ navigationCoordinator: Navigation?)
+    func removeAllChildsBut(coordinator: Coordinator?)
 }
 
 

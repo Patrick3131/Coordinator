@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct CoordinatorStorage {
-    var coordinator: Coordinator
-    var identifier: String
+public struct CoordinatorStorage {
+    public var coordinator: Coordinator
+    public var identifier: String
     /// associated Viewcontroller that pops when coordinator should disallocated
-    var vc: UIViewController?
+    public var vc: UIViewController?
 }

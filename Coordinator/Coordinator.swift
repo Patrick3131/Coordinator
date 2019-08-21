@@ -22,6 +22,7 @@ public protocol Coordinator: class {
 
 public extension Coordinator {
     func identifier() -> String {
+        
         return String(describing: self)
     }
 }
