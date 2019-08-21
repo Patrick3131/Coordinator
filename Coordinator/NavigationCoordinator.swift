@@ -69,7 +69,6 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
     }
     
     open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        
         removeCoordinator()
     }
     
@@ -85,7 +84,6 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
     public func removeAllChildsBut(coordinator: Coordinator?) {
         let storageUnit = childCoordinators.first {$0.identifier == coordinator?.identifier() }
         childCoordinators.removeAll()
-        
         
         if let storageUnit = storageUnit {
             childCoordinators.append(storageUnit)
@@ -103,20 +101,15 @@ open class NavigationCoordinator: NSObject, UINavigationControllerDelegate, Navi
 
     
     public func removeAllChilds() {
-//        childCoordinators.removeAll()
-//        appCoordinatorStack?.coordinators.removeAll()
-////        appCoordinatorStack?.popToRootStack(rootCoordinator: self)
-//        print(self.description)
-//        print(childCoordinators)
-//        print(appCoordinatorStack?.coordinators.count)
-//        print(navigationController.viewControllers.count)
+        childCoordinators.removeAll()
+        appCoordinatorStack?.popToStack(coordinator: self)
     }
     
-    public func setThisCoordinatorAsRoot(_ navigationCoordinator: Navigation? = nil) {
+    
+    public func setThisCoordinatorAsParent(_ navigationCoordinator: Navigation? = nil) {
         if navigationCoordinator != nil {
             self.parentCoordinator = navigationCoordinator
         } else {
-            
             self.parentCoordinator = self
         }
     }
