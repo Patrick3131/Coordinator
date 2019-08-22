@@ -68,12 +68,7 @@ open class AppCoordinatorStack: CoordinatorStack {
         let index = coordinators.firstIndex(where: { $0.identifier() == coordinator.identifier()})
         if let index = index {
             let count = coordinators.count
-            for x in count {
-                if x > index {
-                    coordinators[x].childCoordinators.removeAll()
-                    coordinators.remove(at: x)
-                }
-            }
+            coordinators.removeSubrange((index + 1)..<count)
             updateNavigationDelegate()
         }
     }
